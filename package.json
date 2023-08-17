@@ -4,17 +4,20 @@
     "description": "Linting TypeScript with ESLint and Prettier for formatting",
     "type": "module",
     "main": "index.js",
+    "prettier": {
+        "tabWidth": 4
+    },
     "scripts": {
-        "tsc": "tsc",
-        "dev": "tsc --watch",
         "start": "tsc && node ./out/index.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "tsc --watch",
+        "tsc": "tsc",
         "lint": "eslint --ignore-path .eslintignore --ext .ts src/",
-        "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
     },
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/onehoax/ts_eslint.git"
     },
     "author": "Andres Osorio <andres.osoriogr@gmail.com>",
     "license": "BSD-4-Clause",
