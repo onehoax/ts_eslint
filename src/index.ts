@@ -5,3 +5,10 @@ function addFruit(fruit: string) {
 }
 
 addFruit("oragne");
+
+const myObj = {
+    x: 1,
+    y: 2
+};
+
+console.log(myObj);

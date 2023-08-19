@@ -3,17 +3,18 @@
     "version": "1.0.0",
     "description": "Linting TypeScript with ESLint and Prettier for formatting",
     "type": "module",
-    "main": "index.js",
+    "main": "src/index.js",
     "prettier": {
-        "tabWidth": 4
+        "tabWidth": 4,
+        "trailingComma": "none"
     },
     "scripts": {
-        "start": "tsc && node ./out/index.js",
+        "start": "tsc && node dist/index.js",
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "tsc --watch",
         "tsc": "tsc",
-        "lint": "eslint --ignore-path .eslintignore --ext .ts src/",
-        "format": "prettier --ignore-path .gitignore --write \".**/*.+(js|ts|json)\""
+        "lint": "eslint src/",
+        "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json|md)\""
     },
     "repository": {
         "type": "git",
@@ -22,6 +23,8 @@
     "author": "Andres Osorio <andres.osoriogr@gmail.com>",
     "license": "BSD-4-Clause",
     "devDependencies": {
+        "@eslint/eslintrc": "^2.1.2",
+        "@eslint/js": "^8.47.0",
         "@types/node": "^20.5.0",
         "@typescript-eslint/eslint-plugin": "^6.4.0",
         "@typescript-eslint/parser": "^6.4.0",
@@ -29,9 +32,5 @@
         "eslint-config-prettier": "^9.0.0",
         "prettier": "^3.0.2",
         "typescript": "^5.1.6"
-    },
-    "engines": {
-        "npm": ">=9.8.1",
-        "node": ">=18.17.0"
     }
 }
