@@ -1,6 +1,9 @@
 // Translate ESLintRC-style configs into flat configs
 import { FlatCompat } from "@eslint/eslintrc";
 
+// Groups of global variables for specific runtimes are imported from the globals npm package and included in the globals property
+import globals from "globals";
+// The recommended and all rules configs are located in the @eslint/js package
 import js from "@eslint/js";
 // A parser that allows ESLint to understand TypeScript code
 import tsParser from "@typescript-eslint/parser";
@@ -26,8 +29,12 @@ export default [
             "linebreak-style": ["error", "unix"],
             "comma-dangle": ["error", "never"]
         },
-        ignores: ["node_modules/*", "dist/*"],
+        ignores: ["node_modules/*"],
         languageOptions: {
+            globals: {
+                ...globals.browser,
+                ...globals.node
+            },
             parserOptions: {
                 ecmaVersion: "latest",
                 sourceType: "module"
@@ -49,6 +56,10 @@ export default [
             tsPlugin: tsPlugin
         },
         languageOptions: {
+            globals: {
+                ...globals.browser,
+                ...globals.node
+            },
             parser: tsParser,
             parserOptions: {
                 ecmaVersion: "latest",
